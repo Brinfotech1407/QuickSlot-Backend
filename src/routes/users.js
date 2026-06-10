@@ -5,6 +5,16 @@ const { parsePositiveInt } = require('../utils/validators');
 
 const usersRouter = express.Router();
 
+usersRouter.get('/', async (req, res, next) => {
+  try {
+    const result = await pool.query('SELECT id, name FROM users ORDER BY id');
+
+    res.json({ users: result.rows });
+  } catch (error) {
+    next(error);
+  }
+});
+
 usersRouter.get('/:id/bookings', async (req, res, next) => {
   try {
     const userId = parsePositiveInt(req.params.id);
