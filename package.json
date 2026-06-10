@@ -8,7 +8,8 @@
     "start": "node src/server.js",
     "db:migrate": "node scripts/migrate.js",
     "db:seed": "node scripts/seed.js",
-    "db:reset": "node scripts/reset-db.js"
+    "db:reset": "node scripts/reset-db.js",
+    "test:concurrency": "node scripts/concurrency-check.js"
   },
   "keywords": [
     "quickslot",
